@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraZoom : MonoBehaviour
 {
-    public Vector3 endCoordinates; // Ending coordinates
-    public Quaternion endRotation; // Ending rotation
+    public Transform endTransform; // Ending transform
     public float speed = 1.0f; // Speed of movement
     public AnimationCurve easingCurve; // Easing curve for smooth movement
 
@@ -25,8 +22,15 @@ public class CameraZoom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Check if the endTransform is not assigned
+        if (endTransform == null)
+        {
+            Debug.LogError("End Transform is not assigned!");
+            return;
+        }
+
         // Calculate the total distance
-        float journeyLength = Vector3.Distance(startPos, endCoordinates);
+        float journeyLength = Vector3.Distance(startPos, endTransform.position);
         // Calculate the distance covered
         float distanceCovered = (Time.time - startTime) * speed;
         // Calculate the fraction of the journey completed
@@ -34,9 +38,9 @@ public class CameraZoom : MonoBehaviour
         // Evaluate easing curve to apply smooth movement
         float easingValue = easingCurve.Evaluate(journeyFraction);
         // Move the camera towards the end point with easing
-        transform.position = Vector3.Lerp(startPos, endCoordinates, easingValue);
+        transform.position = Vector3.Lerp(startPos, endTransform.position, easingValue);
         // Interpolate rotation
-        Quaternion newRotation = Quaternion.Lerp(startRot, endRotation, easingValue);
+        Quaternion newRotation = Quaternion.Lerp(startRot, endTransform.rotation, easingValue);
         // Maintain the original forward direction of the camera
         Vector3 originalForward = transform.forward;
         transform.rotation = newRotation;
@@ -47,10 +51,12 @@ public class CameraZoom : MonoBehaviour
         if (journeyFraction >= 1.0f)
         {
             // Optional: Perform actions after reaching the end point
-            Debug.Log("Camera reached the end point!");
+            // Debug.Log("Camera reached the end point!");
         }
     }
 }
+
+
 
 
 
