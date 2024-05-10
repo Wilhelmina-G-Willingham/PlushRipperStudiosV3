@@ -16,17 +16,42 @@ public class BearCleanScript : MonoBehaviour
     {
         //fill reference to the object 
         rend = this.GetComponent<Renderer>();
-        
+
         //use Dirty Material At Start
         if (rend != null && materials != null)
-        { 
-        rend.material = materials[0];
+        {
+            rend.material = materials[0];
         }
     }
 
     // Update is called once per frame
-        void Update()
+    void Update()
+    {
+        // Check if all objects with the "Dirt" tag are deleted
+        if (GameObject.FindGameObjectsWithTag("Dirt").Length == 0)
         {
+            // Change material to CleanMaterial
+            if (materials.Length > 1) // Ensure there is a CleanMaterial
+            {
+                StartCoroutine(ChangeMaterialCoroutine(materials[1]));
+            }
+        }
+    }
 
-        }   
+    // Coroutine for smooth material transition
+    IEnumerator ChangeMaterialCoroutine(Material targetMaterial)
+    {
+        float elapsedTime = 0;
+        Material startMaterial = rend.material;
+
+        while (elapsedTime < lerpDuration)
+        {
+            rend.material.Lerp(startMaterial, targetMaterial, elapsedTime / lerpDuration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        rend.material = targetMaterial; // Ensure final material is set
+    }
 }
+
