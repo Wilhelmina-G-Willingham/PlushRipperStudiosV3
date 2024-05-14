@@ -13,7 +13,7 @@ public class DrawerFunction : MonoBehaviour, IInteractible
     private AudioClip[] clip;
     
     [SerializeField]
-    AudioSource audio;
+    private AudioSource audio;
 
     [SerializeField]
     private float timescale = 1f;
