@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Sphere
   - Dirt
+  - SeamRipper
+  - SewingNeedle
   layers:
   - Default
   - TransparentFX

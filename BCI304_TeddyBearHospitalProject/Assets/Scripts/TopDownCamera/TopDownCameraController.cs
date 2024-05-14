@@ -75,6 +75,9 @@ public class TopDownCameraController : MonoBehaviour, IInteractible
         Debug.DrawRay(worldMousePosNear, worldMousePosFar - worldMousePosNear, Color.cyan);
 
         //get the interactible component of the object hit, and set it to the selected object
-        selectedObject = hit.collider.gameObject.GetComponent<IInteractible>();
+        if(hit.collider != null)
+        { 
+            selectedObject = hit.collider.gameObject.GetComponent<IInteractible>();
+        }
     }
 }
