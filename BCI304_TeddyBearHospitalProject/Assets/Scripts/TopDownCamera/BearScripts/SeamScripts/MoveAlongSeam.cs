@@ -16,6 +16,7 @@ public class MoveAlongSeam : MonoBehaviour
 
     void Start()
     {
+        //sets position to the start of the seam
         transform.position = Seam.transform.position;
     }
     private void OnTriggerStay(Collider other)
