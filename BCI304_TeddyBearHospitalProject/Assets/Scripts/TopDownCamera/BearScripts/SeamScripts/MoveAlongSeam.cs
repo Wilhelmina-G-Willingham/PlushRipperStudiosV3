@@ -50,11 +50,6 @@ public class MoveAlongSeam : MonoBehaviour
                     Move(-moveSpeed);
                 }
             }
-            else 
-            {
-            Debug.Log("Colliding With Bear");
-                return; 
-            }
     }
     //movement logic. Polarity is a positive/minus check 
     private void Move(float polarity)

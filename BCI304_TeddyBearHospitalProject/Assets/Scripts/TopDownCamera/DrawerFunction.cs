@@ -9,19 +9,12 @@ public class DrawerFunction : MonoBehaviour, IInteractible
     [SerializeField]
     private GameObject openedPos;
 
-    [SerializeField]
-    private AudioClip[] clip;
-    
-    [SerializeField]
-    private AudioSource audio;
-
-    [SerializeField]
-    private float timescale = 1f;
+  
     private bool bDrawerOpen = false;
 
     public void OneClickInteract()
     {
-
+        //check if the drawer is open or closed and call the appropriate function
         Debug.Log("RegisteredClick");
         if (bDrawerOpen == true)
         {
@@ -34,11 +27,10 @@ public class DrawerFunction : MonoBehaviour, IInteractible
     }
     private void DrawerClose()
     {
-        //lerp between open and closed points - ask Arden for help with making it smooth
+        //lerp between open and closed points
         Debug.Log("DrawerClosed");
-        transform.position = Vector3.Lerp(transform.position, closedPos.transform.position, timescale);
+        transform.position = closedPos.transform.position;
         //toggle drawer state
-        SoundSelect(1);
         bDrawerOpen = false;
     }
 
@@ -46,14 +38,9 @@ public class DrawerFunction : MonoBehaviour, IInteractible
     private void DrawerOpen() 
     {
         Debug.Log("DrawerOpened");
-        transform.position = Vector3.Lerp(transform.position, openedPos.transform.position, timescale);
-        SoundSelect(0);
+        transform.position = openedPos.transform.position;
         bDrawerOpen = true;
     }
 
-    private void SoundSelect(int SoundClip)
-    {
-        AudioClip audioclip = clip[SoundClip];
-        audio.PlayOneShot(audioclip);
-    }
+
 }
