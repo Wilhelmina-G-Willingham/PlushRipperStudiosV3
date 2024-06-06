@@ -3,7 +3,8 @@ using UnityEngine;
 public class DirtDespawner : MonoBehaviour
 {
     private Rigidbody rb;
-
+    
+    [SerializeField]private AudioClip scrubClip;
     private void Start()
     {
         // Get the Rigidbody component attached to the dirt object
@@ -27,6 +28,9 @@ public class DirtDespawner : MonoBehaviour
         {
             Debug.Log("Sphere collided with dirt!"); // Add a debug log to check if collision is detected
             Destroy(gameObject); // Despawn the dirt object
+           
+            //Call Sound Effects Manager
+            SoundFXManager.instance.PlaySoundFXClip(scrubClip, transform, 1f);
         }
     }
 }

@@ -9,37 +9,59 @@ public class DrawerFunction : MonoBehaviour, IInteractible
     [SerializeField]
     private GameObject openedPos;
 
-  
-    private bool bDrawerOpen = false;
+    //vectors for the open and closed positions of the drawer
+    private Vector3 closed;
+    private Vector3 opened;
+    public bool bDrawerOpen;
 
+    [SerializeField]
+    private AudioClip OpenSound;
+    [SerializeField]
+    private AudioClip CloseSound;
+
+    //store the positions of the open and closed positions as vectors, so that each drawer in a set can use the same position objects
+    private void Awake()
+    {
+        closed = new Vector3 (transform.position.x, transform.position.y, closedPos.transform.position.z);
+        opened = new Vector3 (transform.position.x, transform.position.y, openedPos.transform.position.z);
+    }
     public void OneClickInteract()
     {
         //check if the drawer is open or closed and call the appropriate function
         Debug.Log("RegisteredClick");
-        if (bDrawerOpen == true)
+        if (bDrawerOpen == false)
         {
-            DrawerClose();
+            DrawerOpen(); 
         }
         else
-        { 
-            DrawerOpen();
+        {
+            DrawerClose();
         }
     }
     private void DrawerClose()
     {
-        //lerp between open and closed points
+        //Close the Drawer
         Debug.Log("DrawerClosed");
-        transform.position = closedPos.transform.position;
+        transform.position = closed;
+        
         //toggle drawer state
         bDrawerOpen = false;
+        //play the drawer open sound effect
+        SoundFXManager.instance.PlaySoundFXClip(CloseSound, transform, 1f);
     }
 
     //repeat of above function, inversed. will be consolidated later with system managers and such
     private void DrawerOpen() 
     {
+        //open the drawer
         Debug.Log("DrawerOpened");
-        transform.position = openedPos.transform.position;
+        transform.position = opened;
+
+        //toggle drawer state
         bDrawerOpen = true;
+
+        //play the drawer open sound effect
+        SoundFXManager.instance.PlaySoundFXClip(OpenSound, transform, 1f);
     }
 
 

@@ -49,6 +49,10 @@ public class MoveAlongSeam : MonoBehaviour
                 {
                     Move(-moveSpeed);
                 }
+                else
+                {
+                    
+                }
             }
     }
     //movement logic. Polarity is a positive/minus check 
