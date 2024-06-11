@@ -1782,6 +1782,7 @@ MonoBehaviour:
   soundFXPlayer: {fileID: 564847864345732219, guid: d39acd3c4acbfd141a0f3e070c00030b, type: 3}
   SoundMusicPlayer: {fileID: 564847864345732219, guid: 2a436677baa87584e888f6a8e92277b2, type: 3}
   sceneMusicClip: {fileID: 8300000, guid: 9a3ac227bc0cd774bb1215e73ce3894d, type: 3}
+  repeatingsoundplaying: 0
 --- !u!1001 &1592622065
 PrefabInstance:
   m_ObjectHideFlags: 0
