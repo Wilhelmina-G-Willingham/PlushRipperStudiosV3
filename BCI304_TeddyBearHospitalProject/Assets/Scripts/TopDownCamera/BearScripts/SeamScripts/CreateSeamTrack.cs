@@ -25,7 +25,7 @@ public class CreateSeamTrack : MonoBehaviour
         //store a node as the first position, and the next node in the array as the second
         Vector3 p1 = nodes[seg].position;
         Vector3 p2 = nodes[seg + 1].position;
-       
+
         //lerp between the points
         return Vector3.Lerp(p1, p2, ratio);
     }
@@ -33,9 +33,9 @@ public class CreateSeamTrack : MonoBehaviour
     //draw dotted lines between seams in sequence, to make it easier to see the path
     private void OnDrawGizmos()
     {
-        for (int i = 0; i < nodes.Length-1; i++)
+        for (int i = 0; i < nodes.Length - 1; i++)
         {
-            Handles.DrawDottedLine(nodes[i].position, nodes[i + 1].position, 3.0f);
+
         }
     }
 }

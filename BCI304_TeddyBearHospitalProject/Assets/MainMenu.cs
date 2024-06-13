@@ -2,16 +2,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LoadSceneOnButtonPress : MonoBehaviour
+public class LoadMainMenuOnButtonPress : MonoBehaviour
 {
     public Button yourButton;
 
-    // le button
     void Start()
     {
         if (yourButton != null)
         {
-            yourButton.onClick.AddListener(LoadScene);
+            yourButton.onClick.AddListener(LoadMainMenu);
         }
         else
         {
@@ -19,14 +18,10 @@ public class LoadSceneOnButtonPress : MonoBehaviour
         }
     }
 
-    void LoadScene()
+    // load the MainMenu scene
+    void LoadMainMenu()
     {
-        SceneManager.LoadScene("CatFieldTest");
+        SceneManager.LoadScene("MainMenu");
     }
 }
-
-
-
-
-
 

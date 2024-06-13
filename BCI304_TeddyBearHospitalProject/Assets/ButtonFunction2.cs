@@ -2,11 +2,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LoadSceneOnButtonPress : MonoBehaviour
+public class LoadKoalaSceneOnButtonPress : MonoBehaviour
 {
+    // i literally copied the same code from the other one lol
     public Button yourButton;
 
-    // le button
     void Start()
     {
         if (yourButton != null)
@@ -21,12 +21,7 @@ public class LoadSceneOnButtonPress : MonoBehaviour
 
     void LoadScene()
     {
-        SceneManager.LoadScene("CatFieldTest");
+        SceneManager.LoadScene("KoalaFieldTest");
     }
 }
-
-
-
-
-
 

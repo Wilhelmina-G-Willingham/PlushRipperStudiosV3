@@ -22,8 +22,8 @@ public class MoveAlongSeam : MonoBehaviour
     void Start()
     {
         //gets a random point along the seam to start at
-        int startpoint = Random.Range(0, Seam.nodes.Length-1);
-        
+        int startpoint = Random.Range(0, Seam.nodes.Length - 1);
+
         //sets position to the determined point
         transform.position = Seam.nodes[startpoint].transform.position;
         currentSeg = startpoint;
@@ -40,50 +40,50 @@ public class MoveAlongSeam : MonoBehaviour
             return;
         }
 
-            //moves up the track with seamripper
-            if (other.gameObject.CompareTag("SeamRipper"))
-            {
+        //moves up the track with seamripper
+        if (other.gameObject.CompareTag("SeamRipper"))
+        {
             Debug.Log("SeamRipper Detected");
             //checks whether the current segment of the seam is the final (array is zero-based, .Length is not, hence Length -1)
-                if (currentSeg == Seam.nodes.Length - 1)
-                {
+            if (currentSeg == Seam.nodes.Length - 1)
+            {
                 //if seam is fully open, apply red material
                 renderer.material = materials[0];
                 return;
-                }
-                //if it has not reached the end of the track, move up
-                else
-                {
+            }
+            //if it has not reached the end of the track, move up
+            else
+            {
                 //if mover is moving, apply white material
                 renderer.material = materials[1];
                 Move(moveSpeed);
-                }
             }
-            //moves down the track with sewing needle
-            if (other.gameObject.CompareTag("SewingNeedle"))
-            {
+        }
+        //moves down the track with sewing needle
+        if (other.gameObject.CompareTag("SewingNeedle"))
+        {
             Debug.Log("SewingNeedle Detected");
             if (currentSeg != -1)
-                {
-                    Move(-moveSpeed);
+            {
+                Move(-moveSpeed);
                 renderer.material = materials[1];
-                }
-                else
-                {
+            }
+            else
+            {
                 //if seam is closed, apply green material
                 renderer.material = materials[2];
                 return;
-                }
             }
+        }
     }
     //movement logic. Polarity is a positive/minus check 
     private void Move(float polarity)
     {
         //transition time divides against the polarity, to determine direction.
         transition += Time.deltaTime * 1 / polarity;
-        
+
         //determines what segment is the current segment based on transition value
-        if (transition > 1) 
+        if (transition > 1)
         {
             transition = 0;
             currentSeg++;
@@ -97,3 +97,5 @@ public class MoveAlongSeam : MonoBehaviour
         transform.position = Seam.LinearPosition(currentSeg, transition);
     }
 }
+
+
