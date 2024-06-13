@@ -29,8 +29,8 @@ public class ToggleFurnitureCanvas : MonoBehaviour
 
     void Update()
     {
-        // Toggle Furniture Canvas with SHIFT key
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+        // Toggle Furniture Canvas with CTRL key
+        if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl))
         {
             ToggleCanvas();
         }

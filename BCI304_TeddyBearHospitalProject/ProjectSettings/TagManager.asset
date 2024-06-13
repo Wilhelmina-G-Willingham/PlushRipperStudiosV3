@@ -8,6 +8,7 @@ TagManager:
   - Dirt
   - SeamRipper
   - SewingNeedle
+  - Collar
   layers:
   - Default
   - TransparentFX

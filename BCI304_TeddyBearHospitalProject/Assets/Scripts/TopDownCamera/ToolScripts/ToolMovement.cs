@@ -10,15 +10,10 @@ public class ToolMovement : MonoBehaviour, IInteractible
 
     [SerializeField]
     private float targetHeight = 6f;
-    private float realHeight;
 
     private Vector3 originalPosition;
 
-    private void Start()
-    {
-        originalPosition = transform.position; // Store the original position
-        realHeight = parentLocation.transform.position.y + targetHeight;
-    }
+   
 
     // When the object is held, move in relation to the mouse
     public void Interact()
@@ -35,7 +30,7 @@ public class ToolMovement : MonoBehaviour, IInteractible
     // When left click is let go, spawn back the object to its original position
     public void OneClickInteract()
     {
-        transform.position = originalPosition; // Move back to the original position
+        transform.position = parentLocation.transform.position; // Move back to the original position
         Cursor.visible = true;
     }
 }

@@ -17,44 +17,44 @@ public class TopDownCameraController : MonoBehaviour, IInteractible
 
     // Detect Inputs from mouse and keyboard
     void Update()
-    {
-        //get mouse input (Left Click)
-        if (Input.GetMouseButton(0))
-        {
-            if (selectedObject == null)
-            { 
-                GetInteractible();
-            }
-
-            if (selectedObject != null)
+    { 
+            //get mouse input (Left Click)
+            if (Input.GetMouseButton(0))
             {
-                //call the object's click-and-hold Interact method
-                Debug.Log("Object Detected:");
-                selectedObject.Interact();       
-            }
+                if (selectedObject == null)
+                { 
+                    GetInteractible();
+                }
 
-        }   
-        // Get mouse release input (Left Click)
-        if (Input.GetMouseButtonUp(0))
-        {
-            //ensure that the object has not been selected so as to not do too many raycasts
-            if (selectedObject == null)
+                if (selectedObject != null)
+                {
+                    //call the object's click-and-hold Interact methodfri
+                    Debug.Log("Object Detected:");
+                    selectedObject.Interact();       
+                }
+
+            }   
+            // Get mouse release input (Left Click)
+            if (Input.GetMouseButtonUp(0))
             {
-                GetInteractible();
+                //ensure that the object has not been selected so as to not do too many raycasts
+                if (selectedObject == null)
+                {
+                    GetInteractible();
+                }
+
+                if (selectedObject != null)
+                {
+                    //call the object's Interact method
+                    Debug.Log("Object Detected:");
+                    selectedObject.OneClickInteract();
+                }
+
+                selectedObject = null;
+
+                Cursor.lockState = CursorLockMode.None;
+                Debug.Log("Cursor Unlocked");
             }
-
-            if (selectedObject != null)
-            {
-                //call the object's Interact method
-                Debug.Log("Object Detected:");
-                selectedObject.OneClickInteract();
-            }
-
-            selectedObject = null;
-
-            Cursor.lockState = CursorLockMode.None;
-            Debug.Log("Cursor Unlocked");
-        }
     }
 
     //gets the interactible object that the player has held/clicked
