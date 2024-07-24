@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 
 public class TimerScript : MonoBehaviour
+    //class currently not implemented - designed to create a timed mode for the original prototype
 {
     public float timeElapsed = 0f;
     public bool timerIsRunning = false;

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class DrawerFunction : MonoBehaviour, IInteractible
 {
+    /// <summary>
+    /// An interface to be called by anything directly interacted with by the player while using the top down character controller. Currently includes Teddy Bears, Tools, and drawers.
+    /// </summary>
+    
     [SerializeField]
     private GameObject closedPos;
     [SerializeField]

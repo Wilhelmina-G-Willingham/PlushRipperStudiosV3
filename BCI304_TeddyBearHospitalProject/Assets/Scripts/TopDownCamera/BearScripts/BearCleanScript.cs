@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Class currently unused in present build. Code could be useful later though, perhaps to adapt into a deep clean mechanic?
 public class BearCleanScript : MonoBehaviour
 {
     //an array of materials that the class can call

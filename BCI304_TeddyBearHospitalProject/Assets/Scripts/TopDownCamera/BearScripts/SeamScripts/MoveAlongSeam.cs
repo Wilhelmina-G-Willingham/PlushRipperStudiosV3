@@ -6,6 +6,11 @@ using UnityEngine;
 
 public class MoveAlongSeam : MonoBehaviour
 {
+    /// <summary>
+    /// Moves an object along the seam track, created in the CreateSeamTrack Class. The track moves up or down
+    /// </summary>
+    
+    
     //reference to the seam track (Filled in-engine as there could be multiple seams on a single bear)
     public CreateSeamTrack Seam;
 

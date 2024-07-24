@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 438497201605454258}
   - component: {fileID: 4778386067727316117}
   m_Layer: 0
-  m_Name: Rail
+  m_Name: SeamRail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
