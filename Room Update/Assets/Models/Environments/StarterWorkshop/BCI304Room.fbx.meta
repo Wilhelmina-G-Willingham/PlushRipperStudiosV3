@@ -1,0 +1,324 @@
+fileFormatVersion: 2
+guid: c682737b0da52ec408cef620e9e8bbe7
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BearSponge_lp_BaseColor
+    second: {fileID: 2800000, guid: a9e5a0f8d98d7e94996d91251343b334, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BearSponge_lp_Normal
+    second: {fileID: 2800000, guid: 30cd4237b9f70f047a37e6c3d151e36d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BearSponge_lp_Roughness
+    second: {fileID: 2800000, guid: fc7000360ad15704499fe00b8c9c382b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Bookshelf_lp_BaseColor
+    second: {fileID: 2800000, guid: 7e3ddff97c4997b44af3d9829f6a4217, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Bookshelf_lp_Metalness
+    second: {fileID: 2800000, guid: 2ebb2fa41d31a8e4faf8a6d55747a0b2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Bookshelf_lp_Normal
+    second: {fileID: 2800000, guid: 9ab402b5202f4ca45a6253ffcf6493e0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Bookshelf_lp_Roughness
+    second: {fileID: 2800000, guid: 7b6f0f24bf8fa14488dba349039a0f15, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chair_lp_BaseColor
+    second: {fileID: 2800000, guid: 8a26fe2bbb889da408be2a8db6dfd64d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chair_lp_Metalness
+    second: {fileID: 2800000, guid: 357dea3c5b6e6454893a704e7a76ceb8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chair_lp_Normal
+    second: {fileID: 2800000, guid: 9de757074cae3364c9414775a4725e22, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Chair_lp_Roughness
+    second: {fileID: 2800000, guid: 5b6f49133b059fb4cabb3f625a48125e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cloth_lp_BaseColor
+    second: {fileID: 2800000, guid: d241f71f5a34ec34e92089f764529892, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cloth_lp_Metalness
+    second: {fileID: 2800000, guid: 97cb768607cbf9149a0edffeb4edfac1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cloth_lp_Normal
+    second: {fileID: 2800000, guid: 468b68d7818e77c4987b35cdb2e01d3f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Cloth_lp_Roughness
+    second: {fileID: 2800000, guid: b1d389b102fa10a448eea0c250d07cb0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: CubeShelf_lp_BaseColor
+    second: {fileID: 2800000, guid: cc76fd4a4fbdb5943a7fb46ce340ec23, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: CubeShelf_lp_Metalness
+    second: {fileID: 2800000, guid: c6784bb9bcb32d543a4de701de0ef617, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: CubeShelf_lp_Normal
+    second: {fileID: 2800000, guid: e49bfab783b1c894797df4b96a0b88e2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: CubeShelf_lp_Roughness
+    second: {fileID: 2800000, guid: f0ef9266939f9824cb1952ba6be1ce8c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Door_lp_BaseColor
+    second: {fileID: 2800000, guid: 2791a549a3de2a04c91e39d9175c0a00, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Door_lp_Metalness
+    second: {fileID: 2800000, guid: b8768c1acb476d24ab6ccf508bc8c2c2, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Door_lp_Normal
+    second: {fileID: 2800000, guid: fb66fb2e94a89fe4e9995f5e6f72d9a6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Door_lp_Roughness
+    second: {fileID: 2800000, guid: e033464b19513234b96d65d0573680b4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Drawers_lp_BaseColor
+    second: {fileID: 2800000, guid: bbd53293b904af04a9ea0ce8a6fcfad3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Drawers_lp_Metalness
+    second: {fileID: 2800000, guid: f69bccaa3d011ad42b1c760ffd6687d0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Drawers_lp_Normal
+    second: {fileID: 2800000, guid: 279b169523117d04daa9247b3991a3ff, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Drawers_lp_Roughness
+    second: {fileID: 2800000, guid: 47ef787036ffc0640a9e46d81426758e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Room_BaseColor
+    second: {fileID: 2800000, guid: 6848cf306a388e042889dfb3131a0f6a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Room_Metalness
+    second: {fileID: 2800000, guid: 32aecac4e99bf85488643bfe5734ea7c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Room_Normal
+    second: {fileID: 2800000, guid: a39165c604a08554090abe17899ec3b6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Room_Roughness
+    second: {fileID: 2800000, guid: a9df49698d0664f408f82b595fd4ea28, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Table_lp_BaseColor
+    second: {fileID: 2800000, guid: 834b62d1b33e43945892be62584264d4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Table_lp_Metalness
+    second: {fileID: 2800000, guid: 1c5da468dc12c094e803ed516dbec683, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Table_lp_Normal
+    second: {fileID: 2800000, guid: 0a7540d174989094c803a7b56e87bafd, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Table_lp_Roughness
+    second: {fileID: 2800000, guid: 9989f1f7a5cb57543bca20a405e862bb, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Threadpuller_lp_BaseColor
+    second: {fileID: 2800000, guid: 5e54c30c299458d4181af70c41be5ed3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Threadpuller_lp_Metalness
+    second: {fileID: 2800000, guid: 75bed2a297f2aa744b0d89683573e015, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Threadpuller_lp_Normal
+    second: {fileID: 2800000, guid: 199d928d4c0088446a5253a96c7191dd, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Threadpuller_lp_Roughness
+    second: {fileID: 2800000, guid: 6659a12057826654bb9d7c2a4117f253, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Toolbox_lp_BaseColor
+    second: {fileID: 2800000, guid: 1d9259170911dba438dc81f940eb2b63, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Toolbox_lp_Metalness
+    second: {fileID: 2800000, guid: 33880704219c8784ca7cdb56845f70ef, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Toolbox_lp_Normal
+    second: {fileID: 2800000, guid: 999d38ac2c7f41342b0fc92f83079fb5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Toolbox_lp_Roughness
+    second: {fileID: 2800000, guid: d1f84c4a16843954da1d16d5a5f8bad7, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
