@@ -9,6 +9,7 @@ TagManager:
   - SeamRipper
   - SewingNeedle
   - Collar
+  - Teddy
   layers:
   - Default
   - TransparentFX

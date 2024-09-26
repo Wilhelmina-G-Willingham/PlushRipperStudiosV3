@@ -1753,7 +1753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentLocation: {fileID: 1582206844}
-  targetHeight: 8.5
+  targetHeight: 6
 --- !u!64 &720546961
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8269,6 +8269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BackSeam
       objectReference: {fileID: 0}
+    - target: {fileID: 6594630051799632477, guid: fabcbbc5a9a401e47bfc03eb5afbf6c1, type: 3}
+      propertyPath: m_TagString
+      value: Teddy
+      objectReference: {fileID: 0}
     - target: {fileID: 8414533644322855601, guid: fabcbbc5a9a401e47bfc03eb5afbf6c1, type: 3}
       propertyPath: materials.Array.size
       value: 3
@@ -8404,6 +8408,7 @@ MonoBehaviour:
   bDrawerOpen: 0
   OpenSound: {fileID: 8300000, guid: 1e053d2518499594ba77ee43180340e1, type: 3}
   CloseSound: {fileID: 8300000, guid: 055239ae86bf55643a95356885b48c5d, type: 3}
+  openCloseSpeed: 3
 --- !u!64 &6979944970031093325
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8708,6 +8713,7 @@ MonoBehaviour:
   bDrawerOpen: 0
   OpenSound: {fileID: 8300000, guid: 1e053d2518499594ba77ee43180340e1, type: 3}
   CloseSound: {fileID: 8300000, guid: 055239ae86bf55643a95356885b48c5d, type: 3}
+  openCloseSpeed: 3
 --- !u!64 &7834599354370082573
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8849,6 +8855,7 @@ MonoBehaviour:
   bDrawerOpen: 0
   OpenSound: {fileID: 8300000, guid: 1e053d2518499594ba77ee43180340e1, type: 3}
   CloseSound: {fileID: 8300000, guid: 055239ae86bf55643a95356885b48c5d, type: 3}
+  openCloseSpeed: 3
 --- !u!33 &8103695659622242921
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8968,6 +8975,7 @@ MonoBehaviour:
   bDrawerOpen: 0
   OpenSound: {fileID: 8300000, guid: 1e053d2518499594ba77ee43180340e1, type: 3}
   CloseSound: {fileID: 8300000, guid: 055239ae86bf55643a95356885b48c5d, type: 3}
+  openCloseSpeed: 3
 --- !u!64 &8826985320162588534
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9046,7 +9054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentLocation: {fileID: 286527076}
-  targetHeight: 8
+  targetHeight: 8.5
 --- !u!65 &8912746303917401211
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9191,7 +9199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentLocation: {fileID: 1503965944}
-  targetHeight: 8
+  targetHeight: 6
 --- !u!65 &9219366277471668138
 BoxCollider:
   m_ObjectHideFlags: 0

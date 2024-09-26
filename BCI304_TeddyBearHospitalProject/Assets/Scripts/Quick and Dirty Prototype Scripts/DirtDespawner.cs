@@ -1,19 +1,25 @@
 using UnityEngine;
+using System.Collections;  // DONT DELETE THIS 
 
 public class DirtDespawner : MonoBehaviour
 {
     private Rigidbody rb;
-    
-    [SerializeField]private AudioClip scrubClip;
+
+    [SerializeField] private AudioClip scrubClip;
+    [SerializeField] private float shrinkDuration = 1f; // Duration for shrinking
+
+    // Static fwag UWU
+    private static bool isAnyDirtDespawning = false;
+
     private void Start()
     {
-        // Get the Rigidbody component attached to the dirt object
+        
         rb = GetComponent<Rigidbody>();
         if (rb != null)
         {
-            // Disable gravity for the Rigidbody
+            
             rb.useGravity = false;
-            // Freeze rotation to prevent the dirt object from rotating
+            
             rb.constraints = RigidbodyConstraints.FreezeRotation;
         }
         else
@@ -24,16 +30,48 @@ public class DirtDespawner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Sphere")) // Change "Sphere" to the tag of your sphere object
+        if (other.CompareTag("Sphere")) 
         {
-            Debug.Log("Sphere collided with dirt!"); // Add a debug log to check if collision is detected
-            Destroy(gameObject); // Despawn the dirt object
-           
-            //Call Sound Effects Manager
-            SoundFXManager.instance.PlaySoundFXClip(scrubClip, transform, 1f);
+            // Only allow despawning if no other dirt is currently despawning
+            if (!isAnyDirtDespawning)
+            {
+                Debug.Log("Sphere collided with dirt!"); 
+                SoundFXManager.instance.PlaySoundFXClip(scrubClip, transform, 1f); 
+
+                // Start the shrinking coroutine
+                StartCoroutine(ShrinkAndDestroy());
+            }
         }
     }
+
+    private IEnumerator ShrinkAndDestroy()
+    {
+        isAnyDirtDespawning = true; 
+        Vector3 initialScale = transform.localScale; 
+        float elapsedTime = 0f;
+
+        // Gradually shrink over the duration
+        while (elapsedTime < shrinkDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float progress = elapsedTime / shrinkDuration;
+            transform.localScale = Vector3.Lerp(initialScale, Vector3.zero, progress); 
+            yield return null; // Wait until the next frame
+        }
+
+        
+        transform.localScale = Vector3.zero;
+
+        
+        Destroy(gameObject);
+
+        isAnyDirtDespawning = false; // Reset the flag when despawning is complete
+    }
 }
+
+
+
+
 
 
 

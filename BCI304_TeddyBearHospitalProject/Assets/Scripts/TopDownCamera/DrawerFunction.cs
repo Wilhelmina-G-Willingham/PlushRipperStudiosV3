@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class DrawerFunction : MonoBehaviour, IInteractible
 {
-    /// <summary>
-    /// An interface to be called by anything directly interacted with by the player while using the top down character controller. Currently includes Teddy Bears, Tools, and drawers.
-    /// </summary>
-    
     [SerializeField]
     private GameObject closedPos;
     [SerializeField]
     private GameObject openedPos;
 
-    //vectors for the open and closed positions of the drawer
+    // Vectors for the open and closed positions of the drawer
     private Vector3 closed;
     private Vector3 opened;
     public bool bDrawerOpen;
@@ -23,50 +19,72 @@ public class DrawerFunction : MonoBehaviour, IInteractible
     [SerializeField]
     private AudioClip CloseSound;
 
-    //store the positions of the open and closed positions as vectors, so that each drawer in a set can use the same position objects
+    // Speed for opening and closing the drawer
+    [SerializeField]
+    private float openCloseSpeed = 1f; // Speed in units per second
+
     private void Awake()
     {
-        closed = new Vector3 (transform.position.x, transform.position.y, closedPos.transform.position.z);
-        opened = new Vector3 (transform.position.x, transform.position.y, openedPos.transform.position.z);
+        closed = new Vector3(transform.position.x, transform.position.y, closedPos.transform.position.z);
+        opened = new Vector3(transform.position.x, transform.position.y, openedPos.transform.position.z);
     }
+
     public void OneClickInteract()
     {
-        //check if the drawer is open or closed and call the appropriate function
         Debug.Log("RegisteredClick");
         if (bDrawerOpen == false)
         {
-            DrawerOpen(); 
+            StartCoroutine(DrawerOpen());
         }
         else
         {
-            DrawerClose();
+            StartCoroutine(DrawerClose());
         }
     }
-    private void DrawerClose()
+
+    private IEnumerator DrawerClose()
     {
-        //Close the Drawer
         Debug.Log("DrawerClosed");
-        transform.position = closed;
-        
-        //toggle drawer state
+        Vector3 startingPos = transform.position;
+
+        // Calculate the distance to cover
+        float distance = Vector3.Distance(startingPos, closed);
+        float journeyLength = distance / openCloseSpeed; // Total time to cover the distance
+        float elapsedTime = 0f;
+
+        while (elapsedTime < journeyLength)
+        {
+            transform.position = Vector3.Lerp(startingPos, closed, (elapsedTime / journeyLength));
+            elapsedTime += Time.deltaTime;
+            yield return null; // Wait for the next frame
+        }
+
+        transform.position = closed; // Ensure it ends exactly at closed position
         bDrawerOpen = false;
-        //play the drawer open sound effect
         SoundFXManager.instance.PlaySoundFXClip(CloseSound, transform, 1f);
     }
 
-    //repeat of above function, inversed. will be consolidated later with system managers and such
-    private void DrawerOpen() 
+    private IEnumerator DrawerOpen()
     {
-        //open the drawer
         Debug.Log("DrawerOpened");
-        transform.position = opened;
+        Vector3 startingPos = transform.position;
 
-        //toggle drawer state
+        // Calculate the distance to cover
+        float distance = Vector3.Distance(startingPos, opened);
+        float journeyLength = distance / openCloseSpeed; // Total time to cover the distance
+        float elapsedTime = 0f;
+
+        while (elapsedTime < journeyLength)
+        {
+            transform.position = Vector3.Lerp(startingPos, opened, (elapsedTime / journeyLength));
+            elapsedTime += Time.deltaTime;
+            yield return null; // Wait for the next frame
+        }
+
+        transform.position = opened; // Ensure it ends exactly at opened position
         bDrawerOpen = true;
-
-        //play the drawer open sound effect
         SoundFXManager.instance.PlaySoundFXClip(OpenSound, transform, 1f);
     }
-
-
 }
+
+
