@@ -21,7 +21,7 @@ public class LoadKoalaSceneOnButtonPress : MonoBehaviour
 
     void LoadScene()
     {
-        SceneManager.LoadScene("KoalaFieldTest");
+        SceneManager.LoadScene("WorkshopTest Main Scene");
     }
 }
 
