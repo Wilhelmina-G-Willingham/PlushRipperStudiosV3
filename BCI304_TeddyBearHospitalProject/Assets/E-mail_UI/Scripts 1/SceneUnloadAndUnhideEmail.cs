@@ -73,4 +73,5 @@ public class SceneUnloadController : MonoBehaviour
             Debug.LogWarning("The specified scene is not loaded or does not exist.");
         }
     }
+
 }

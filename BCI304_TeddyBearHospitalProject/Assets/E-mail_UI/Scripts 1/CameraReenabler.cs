@@ -2,51 +2,69 @@ using UnityEngine;
 
 public class CameraReenabler : MonoBehaviour
 {
-    public string playerCameraTag = "PlayerCamera"; // The tag used to identify the player camera
-    private Camera playerCamera;
+    public GameObject playerCamera;          // Reference to the Player Camera
+    public Canvas notificationCanvas;        // Canvas for the notification
+    public GameObject notificationPopup;     // Notification popup object
+    private bool hasActivatedNotification = false;  // To ensure the notification triggers only once
 
     private void Start()
     {
-        // Find the camera with the specified tag
-        playerCamera = GameObject.FindGameObjectWithTag(playerCameraTag)?.GetComponent<Camera>();
-
+        // Check if the player camera exists
         if (playerCamera == null)
         {
-            Debug.LogWarning("No camera found with tag: " + playerCameraTag);
-            return;
+            playerCamera = GameObject.FindGameObjectWithTag("PlayerCamera");
+            if (playerCamera == null)
+            {
+                Debug.LogError("Player camera not found! Make sure the camera is tagged 'PlayerCamera'.");
+                return;
+            }
         }
 
-        // Ensure the player camera is active at the start
-        playerCamera.gameObject.SetActive(true);
+        // Ensure the notification is hidden initially
+        if (notificationCanvas != null)
+        {
+            notificationCanvas.gameObject.SetActive(false);
+            Debug.Log("Notification canvas hidden at the start.");
+        }
 
-        // Start the coroutine to periodically check camera status
-        StartCoroutine(CheckCameras());
+        if (notificationPopup != null)
+        {
+            notificationPopup.SetActive(false);
+            Debug.Log("Notification popup hidden at the start.");
+        }
     }
 
-    private System.Collections.IEnumerator CheckCameras()
+    private void Update()
     {
-        while (true)
+        // Check if no cameras are rendering and the player camera is disabled
+        if (Camera.allCameras.Length == 0 && !playerCamera.activeInHierarchy)
         {
-            // Check if any cameras are rendering
-            bool cameraRendering = false;
-            foreach (Camera cam in Camera.allCameras)
-            {
-                if (cam.isActiveAndEnabled)
-                {
-                    cameraRendering = true;
-                    break;
-                }
-            }
+            // Reactivate the player camera if none are rendering
+            playerCamera.SetActive(true);
+            Debug.Log("Player camera reactivated.");
 
-            // If no cameras are rendering, activate the player camera
-            if (!cameraRendering && playerCamera != null)
+            // Trigger notification if this is the first time
+            if (!hasActivatedNotification)
             {
-                playerCamera.gameObject.SetActive(true);
-                Debug.Log("Player camera activated as no other cameras are rendering.");
+                ActivateNotification();
+                hasActivatedNotification = true;
+                Debug.Log("Notification triggered for the first time.");
             }
+        }
+    }
 
-            // Wait for a short time before checking again
-            yield return new WaitForSeconds(1f); // Adjust the interval as needed
+    private void ActivateNotification()
+    {
+        // Ensure the notification canvas and popup are assigned and activate them
+        if (notificationCanvas != null && notificationPopup != null)
+        {
+            notificationCanvas.gameObject.SetActive(true);
+            notificationPopup.SetActive(true);
+            Debug.Log("Notification popup and canvas displayed.");
+        }
+        else
+        {
+            Debug.LogWarning("Notification Canvas or Popup is not assigned.");
         }
     }
 }
