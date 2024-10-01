@@ -3,10 +3,7 @@ using UnityEngine;
 public class CameraReenabler : MonoBehaviour
 {
     public GameObject playerCamera;          // Reference to the Player Camera
-    public Canvas notificationCanvas;        // Canvas for the notification
-    public GameObject notificationPopup;     // Notification popup object
-    private bool hasActivatedNotification = false;  // To ensure the notification triggers only once
-
+   
     private void Start()
     {
         // Check if the player camera exists
@@ -20,18 +17,7 @@ public class CameraReenabler : MonoBehaviour
             }
         }
 
-        // Ensure the notification is hidden initially
-        if (notificationCanvas != null)
-        {
-            notificationCanvas.gameObject.SetActive(false);
-            Debug.Log("Notification canvas hidden at the start.");
-        }
-
-        if (notificationPopup != null)
-        {
-            notificationPopup.SetActive(false);
-            Debug.Log("Notification popup hidden at the start.");
-        }
+        
     }
 
     private void Update()
@@ -43,28 +29,9 @@ public class CameraReenabler : MonoBehaviour
             playerCamera.SetActive(true);
             Debug.Log("Player camera reactivated.");
 
-            // Trigger notification if this is the first time
-            if (!hasActivatedNotification)
-            {
-                ActivateNotification();
-                hasActivatedNotification = true;
-                Debug.Log("Notification triggered for the first time.");
-            }
+            
         }
     }
 
-    private void ActivateNotification()
-    {
-        // Ensure the notification canvas and popup are assigned and activate them
-        if (notificationCanvas != null && notificationPopup != null)
-        {
-            notificationCanvas.gameObject.SetActive(true);
-            notificationPopup.SetActive(true);
-            Debug.Log("Notification popup and canvas displayed.");
-        }
-        else
-        {
-            Debug.LogWarning("Notification Canvas or Popup is not assigned.");
-        }
-    }
+   
 }

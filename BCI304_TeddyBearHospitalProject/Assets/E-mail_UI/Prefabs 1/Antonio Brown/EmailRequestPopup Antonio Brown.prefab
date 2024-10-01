@@ -950,6 +950,7 @@ GameObject:
   - component: {fileID: 449316720145459644}
   - component: {fileID: 1750459163931092622}
   - component: {fileID: 4031279114047275445}
+  - component: {fileID: 7352244828251251280}
   m_Layer: 5
   m_Name: EmailRequestPopup Antonio Brown
   m_TagString: Untagged
@@ -1037,6 +1038,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f08cc8dcc79b543a434120ff07ec43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7352244828251251280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6271621229585647248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04a5cedebcd4ae24889b9c8214f857a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notificationCanvas: {fileID: 5358431296423443341, guid: dc96af61d13bdf549bf2387247990be2, type: 3}
 --- !u!1 &7277918089058063404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,6 +1420,34 @@ PrefabInstance:
     - target: {fileID: 478569409371337255, guid: 81f12af3e8428264a9e5648e45db8f89, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 695635003179327504, guid: 81f12af3e8428264a9e5648e45db8f89, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 695635003179327504, guid: 81f12af3e8428264a9e5648e45db8f89, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 695635003179327504, guid: 81f12af3e8428264a9e5648e45db8f89, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7352244828251251280}
+    - target: {fileID: 695635003179327504, guid: 81f12af3e8428264a9e5648e45db8f89, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 695635003179327504, guid: 81f12af3e8428264a9e5648e45db8f89, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnButtonPressed
+      objectReference: {fileID: 0}
+    - target: {fileID: 695635003179327504, guid: 81f12af3e8428264a9e5648e45db8f89, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NotificationTrigger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 695635003179327504, guid: 81f12af3e8428264a9e5648e45db8f89, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6157349609735490578, guid: 81f12af3e8428264a9e5648e45db8f89, type: 3}
       propertyPath: m_Name
