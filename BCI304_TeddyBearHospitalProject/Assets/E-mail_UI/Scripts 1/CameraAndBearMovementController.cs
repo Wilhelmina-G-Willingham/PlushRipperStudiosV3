@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +15,7 @@ public class SmoothCameraAndBearMover : MonoBehaviour
     public Button moveToWorkbenchButton;       // UI Button to move the camera/bear to the workbench
 
     public float moveSpeed = 2.0f;             // Speed at which the camera and bear move
-    public float rotationSpeed = 2.0f;         // Speed at which the camera rotates
+    public float rotationDuration = 1.5f;      // Duration for the smooth rotation
     private bool movingToSink = false;         // Flag to track whether the camera is moving to the sink
     private bool movingToWorkbench = false;    // Flag to track whether the camera is moving to the workbench
 
@@ -45,12 +46,8 @@ public class SmoothCameraAndBearMover : MonoBehaviour
             // Stop moving when the camera reaches the sink position
             if (HasReachedPosition(cameraTransform, sinkPosition))
             {
-                // Rotate the camera to the sink's rotation
-                SmoothRotate(cameraTransform, sinkRotation);
-                if (HasReachedRotation(cameraTransform, sinkRotation))
-                {
-                    movingToSink = false; // Stop moving to sink when rotation is complete
-                }
+                movingToSink = false;
+                StartCoroutine(SmoothRotate(cameraTransform, sinkRotation, rotationDuration)); // Start the smooth rotation coroutine
             }
         }
         else if (movingToWorkbench)
@@ -61,11 +58,8 @@ public class SmoothCameraAndBearMover : MonoBehaviour
             // Stop moving when the camera reaches the workbench position and reset rotation
             if (HasReachedPosition(cameraTransform, workbenchPosition))
             {
-                SmoothRotate(cameraTransform, initialRotation);
-                if (HasReachedRotation(cameraTransform, initialRotation))
-                {
-                    movingToWorkbench = false; // Stop moving to workbench when rotation is complete
-                }
+                movingToWorkbench = false;
+                StartCoroutine(SmoothRotate(cameraTransform, initialRotation, rotationDuration)); // Reset rotation to initial rotation
             }
         }
     }
@@ -76,27 +70,31 @@ public class SmoothCameraAndBearMover : MonoBehaviour
         movingToWorkbench = !toSink;
     }
 
+    // Coroutine to smoothly rotate the camera
+    private IEnumerator SmoothRotate(Transform objectToRotate, Quaternion targetRotation, float duration)
+    {
+        Quaternion startRotation = objectToRotate.rotation;
+        float timeElapsed = 0f;
+
+        while (timeElapsed < duration)
+        {
+            objectToRotate.rotation = Quaternion.Slerp(startRotation, targetRotation, timeElapsed / duration);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        objectToRotate.rotation = targetRotation; // Ensure the final rotation is set
+    }
+
     // Function to smoothly move a transform to a target position
     private void SmoothMove(Transform objectToMove, Transform targetPosition)
     {
         objectToMove.position = Vector3.Lerp(objectToMove.position, targetPosition.position, Time.deltaTime * moveSpeed);
     }
 
-    // Function to smoothly rotate a transform to a target rotation
-    private void SmoothRotate(Transform objectToRotate, Quaternion targetRotation)
-    {
-        objectToRotate.rotation = Quaternion.Slerp(objectToRotate.rotation, targetRotation, Time.deltaTime * rotationSpeed);
-    }
-
     // Check if the object has reached the target position
     private bool HasReachedPosition(Transform objectTransform, Transform targetPosition)
     {
         return Vector3.Distance(objectTransform.position, targetPosition.position) < 0.1f;
-    }
-
-    // Check if the object has reached the target rotation
-    private bool HasReachedRotation(Transform objectTransform, Quaternion targetRotation)
-    {
-        return Quaternion.Angle(objectTransform.rotation, targetRotation) < 1f;
     }
 }

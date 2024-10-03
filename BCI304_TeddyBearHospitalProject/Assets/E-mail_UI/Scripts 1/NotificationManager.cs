@@ -13,7 +13,7 @@ public class NotificationController : MonoBehaviour
         }
     }
 
-    // Method to show the notification
+    // Method to show the notification immediately (no delay)
     public void ShowNotification()
     {
         if (notificationCanvas != null)

@@ -845,6 +845,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 566654733}
+  - component: {fileID: 566654734}
   m_Layer: 0
   m_Name: Active Game Object
   m_TagString: Untagged
@@ -869,6 +870,19 @@ Transform:
   - {fileID: 137764326}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &566654734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566654732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6d756489f3654f49a605cf33a86698c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pc: {fileID: 8025326890580990722}
 --- !u!4 &567614983 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e06aad001f8ed564cbea3828427ef618, type: 3}
@@ -8312,7 +8326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4309195588678606863, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 134.97382
+      value: 134.97426
       objectReference: {fileID: 0}
     - target: {fileID: 4353725981702073827, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_AnchorMax.x
@@ -8344,7 +8358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4513336154866247055, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 82.443405
+      value: 82.443825
       objectReference: {fileID: 0}
     - target: {fileID: 4565514788809247652, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_SizeDelta.x
@@ -8384,7 +8398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5065599663551959952, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 408.82977
+      value: 408.8302
       objectReference: {fileID: 0}
     - target: {fileID: 5088488034781650821, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -8792,7 +8806,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8719492927408946738, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8719492927408946738, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -8912,6 +8926,7 @@ GameObject:
   - component: {fileID: 8507080933416157618}
   - component: {fileID: 8507080933416157619}
   - component: {fileID: 8507080933416157620}
+  - component: {fileID: 8507080933416157621}
   m_Layer: 0
   m_Name: PC_lp.001
   m_TagString: Untagged
@@ -9021,6 +9036,21 @@ MonoBehaviour:
   videoPlayer: {fileID: 3899272655302984158, guid: b1949ab97189d79488f3b37a672e5e49, type: 3}
   hideButton: {fileID: 1111979525}
   tutorialPopup: {fileID: 2111976281}
+--- !u!114 &8507080933416157621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8025326890580990722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4b6fd275c84794439ac517b1db059cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notificationCanvas: {fileID: 868693983}
+  pcCollider: {fileID: 8507080933416157619}
+  additiveSceneName: Koala Field Test 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
