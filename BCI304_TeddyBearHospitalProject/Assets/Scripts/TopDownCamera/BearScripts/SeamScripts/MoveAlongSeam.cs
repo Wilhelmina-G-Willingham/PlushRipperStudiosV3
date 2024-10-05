@@ -1,15 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 public class MoveAlongSeam : MonoBehaviour
 {
-    /// <summary>
-    /// Moves an object along the seam track, created in the CreateSeamTrack Class. The track moves up or down
-    /// </summary>
-
     // Reference to the seam track (Filled in-engine as there could be multiple seams on a single bear)
     public CreateSeamTrack Seam;
 
@@ -21,6 +14,16 @@ public class MoveAlongSeam : MonoBehaviour
 
     [SerializeField]
     private Material[] materials;
+
+    // Audio components for SeamRipper
+    public AudioClip[] seamRipperClips;       // Array of audio clips for SeamRipper
+    public AudioSource[] seamRipperSources;   // Array of audio sources for SeamRipper
+
+    // Audio components for SewingNeedle
+    public AudioClip[] sewingNeedleClips;     // Array of audio clips for SewingNeedle
+    public AudioSource[] sewingNeedleSources; // Array of audio sources for SewingNeedle
+
+    private bool isAudioPlaying = false; // Track if an audio clip is currently playing
 
     // Renamed from 'renderer' to 'objectRenderer' to avoid name conflict
     private Renderer objectRenderer;
@@ -51,6 +54,13 @@ public class MoveAlongSeam : MonoBehaviour
         if (other.gameObject.CompareTag("SeamRipper"))
         {
             Debug.Log("SeamRipper Detected");
+
+            // Play a random seam ripper sound if no audio is currently playing
+            if (!isAudioPlaying)
+            {
+                PlayRandomSound(seamRipperClips, seamRipperSources);
+            }
+
             // Checks whether the current segment of the seam is the final (array is zero-based, .Length is not, hence Length -1)
             if (currentSeg == Seam.nodes.Length - 1)
             {
@@ -58,7 +68,6 @@ public class MoveAlongSeam : MonoBehaviour
                 objectRenderer.material = materials[0];
                 return;
             }
-            // If it has not reached the end of the track, move up
             else
             {
                 // If mover is moving, apply white material
@@ -71,6 +80,13 @@ public class MoveAlongSeam : MonoBehaviour
         if (other.gameObject.CompareTag("SewingNeedle"))
         {
             Debug.Log("SewingNeedle Detected");
+
+            // Play a random sewing needle sound if no audio is currently playing
+            if (!isAudioPlaying)
+            {
+                PlayRandomSound(sewingNeedleClips, sewingNeedleSources);
+            }
+
             if (currentSeg != -1)
             {
                 Move(-moveSpeed);
@@ -106,7 +122,40 @@ public class MoveAlongSeam : MonoBehaviour
         // Calls the lerp function in the seam's script
         transform.position = Seam.LinearPosition(currentSeg, transition);
     }
+
+    // Method to play a random audio clip from a provided array of clips and sources
+    private void PlayRandomSound(AudioClip[] clips, AudioSource[] sources)
+    {
+        if (clips.Length > 0 && sources.Length > 0)
+        {
+            // Select a random clip and audio source
+            int randomClipIndex = Random.Range(0, clips.Length);
+            int randomSourceIndex = Random.Range(0, sources.Length);
+
+            AudioClip randomClip = clips[randomClipIndex];
+            AudioSource randomSource = sources[randomSourceIndex];
+
+            if (randomSource != null && randomClip != null)
+            {
+                // Only play the sound if the audio source is not currently playing
+                if (!randomSource.isPlaying)
+                {
+                    randomSource.PlayOneShot(randomClip);
+                    StartCoroutine(WaitForAudioToFinish(randomClip.length)); // Wait for the audio to finish
+                }
+            }
+        }
+        else
+        {
+            Debug.LogWarning("No audio clips or sources available to play!");
+        }
+    }
+
+    // Coroutine to wait for the audio to finish playing
+    private IEnumerator WaitForAudioToFinish(float clipDuration)
+    {
+        isAudioPlaying = true;
+        yield return new WaitForSeconds(clipDuration); // Wait for the clip's duration
+        isAudioPlaying = false;
+    }
 }
-
-
-
