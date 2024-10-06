@@ -821,6 +821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentLocation: {fileID: 1582206844}
   targetHeight: 8.5
+  returnSoundClips: []
 --- !u!64 &720546961
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1122,6 +1123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentLocation: {fileID: 1113608562}
   targetHeight: 2
+  returnSoundClips: []
 --- !u!1 &935675394
 GameObject:
   m_ObjectHideFlags: 0
@@ -4742,6 +4744,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentLocation: {fileID: 924192507}
   targetHeight: 8
+  returnSoundClips: []
 --- !u!1 &6979944970031093323
 GameObject:
   m_ObjectHideFlags: 0
@@ -4962,6 +4965,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentLocation: {fileID: 1113608562}
   targetHeight: 4
+  returnSoundClips:
+  - {fileID: 8300000, guid: 19806ce0114881f498ee1be5bf59978c, type: 3}
+  - {fileID: 8300000, guid: 06598763eb89a7b458dbaa9d5a4aad56, type: 3}
 --- !u!23 &7834599354370082571
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5221,6 +5227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentLocation: {fileID: 286527076}
   targetHeight: 4
+  returnSoundClips: []
 --- !u!65 &8912746303917401211
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5264,6 +5271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentLocation: {fileID: 1503965944}
   targetHeight: 4
+  returnSoundClips: []
 --- !u!65 &9219366277471668138
 BoxCollider:
   m_ObjectHideFlags: 0

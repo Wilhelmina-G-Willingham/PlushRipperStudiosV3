@@ -7631,6 +7631,14 @@ PrefabInstance:
       propertyPath: notificationCanvas
       value: 
       objectReference: {fileID: 868693983}
+    - target: {fileID: 6063084765296431962, guid: c165bd7bbce91864c82f2ef708e36508, type: 3}
+      propertyPath: notificationSounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063084765296431962, guid: c165bd7bbce91864c82f2ef708e36508, type: 3}
+      propertyPath: notificationSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9db1fa64b425eaf4ba5deba3c678808f, type: 3}
     - target: {fileID: 8938732034392050501, guid: c165bd7bbce91864c82f2ef708e36508, type: 3}
       propertyPath: m_Name
       value: NotificationManager
@@ -8425,7 +8433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4309195588678606863, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 134.97372
+      value: 134.97374
       objectReference: {fileID: 0}
     - target: {fileID: 4353725981702073827, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_AnchorMax.x
@@ -8457,7 +8465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4513336154866247055, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 82.44325
+      value: 82.443306
       objectReference: {fileID: 0}
     - target: {fileID: 4565514788809247652, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_SizeDelta.x
