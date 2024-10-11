@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class NotificationController : MonoBehaviour
 {
-    public GameObject notificationCanvas;      // Reference to the Notification Canvas
-    public AudioClip[] notificationSounds;     // Array of notification sound clips
-    private AudioSource audioSource;           // AudioSource component to play sounds
+    public GameObject notificationCanvas;  // Reference to the Notification Canvas
+    public AudioClip notificationSound;    // Reference to the notification sound (ping noise)
+    public AudioSource audioSource;        // Audio source to play the sound
+    public string additiveSceneName;       // Name of the additive scene to track
 
     private void Start()
     {
@@ -14,55 +17,55 @@ public class NotificationController : MonoBehaviour
             notificationCanvas.SetActive(false); // Hide the notification canvas
         }
 
-        // Initialize the AudioSource component
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
+        // Subscribe to the scene unload event
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
+    }
+
+    private void OnDestroy()
+    {
+        // Unsubscribe from the scene unload event when the object is destroyed
+        SceneManager.sceneUnloaded -= OnSceneUnloaded;
+    }
+
+    // Method to detect when a scene is unloaded
+    private void OnSceneUnloaded(Scene scene)
+    {
+        // Check if the unloaded scene is the specified additive scene
+        if (scene.name == additiveSceneName)
         {
-            audioSource = gameObject.AddComponent<AudioSource>(); // Add AudioSource if missing
+            ShowNotification();  // Show the notification when the scene is unloaded
         }
     }
 
-    // Method to show the notification immediately (no delay)
-    public void ShowNotification()
+    // Method to show the notification and play sound with a delay
+    private void ShowNotification()
     {
         if (notificationCanvas != null)
         {
-            notificationCanvas.SetActive(true);  // Unhide the notification canvas
-            PlayNotificationSound();             // Play sound when the notification appears
+            notificationCanvas.SetActive(true); // Unhide the notification canvas
             Debug.Log("Notification shown.");
+            StartCoroutine(PlaySoundWithDelay(1f)); // Delay the sound by 1 second
         }
     }
 
-    // Method to hide the notification
-    public void HideNotification()
+    // Coroutine to play the sound with a delay
+    private IEnumerator PlaySoundWithDelay(float delay)
     {
-        if (notificationCanvas != null)
+        yield return new WaitForSeconds(delay); // Wait for the delay duration
+        if (audioSource != null && notificationSound != null)
         {
-            notificationCanvas.SetActive(false); // Hide the notification canvas
-            Debug.Log("Notification hidden.");
+            audioSource.PlayOneShot(notificationSound); // Play the notification sound
+            Debug.Log("Notification sound played after delay.");
         }
-    }
-
-    // Call this method when the PC is clicked
-    public void OnPCClicked()
-    {
-        ShowNotification();  // Show the notification
     }
 
     // Call this method when the reply button is pressed
     public void OnReplyButtonPressed()
     {
-        HideNotification();  // Hide the notification
-    }
-
-    // Play a random notification sound
-    private void PlayNotificationSound()
-    {
-        if (notificationSounds.Length > 0 && audioSource != null)
+        if (notificationCanvas != null)
         {
-            int randomIndex = Random.Range(0, notificationSounds.Length);  // Select a random sound
-            AudioClip clipToPlay = notificationSounds[randomIndex];
-            audioSource.PlayOneShot(clipToPlay);  // Play the sound
+            notificationCanvas.SetActive(false); // Hide the notification canvas
+            Debug.Log("Notification hidden.");
         }
     }
 }
