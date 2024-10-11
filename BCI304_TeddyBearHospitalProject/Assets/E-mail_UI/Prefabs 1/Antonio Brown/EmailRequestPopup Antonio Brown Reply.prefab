@@ -917,7 +917,7 @@ PrefabInstance:
       objectReference: {fileID: 6271621229585647248}
     - target: {fileID: 4732904235297245140, guid: 7fcb81f4cdee8b24693395dc48c7760d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4732904235297245140, guid: 7fcb81f4cdee8b24693395dc48c7760d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -926,14 +926,14 @@ PrefabInstance:
     - target: {fileID: 4732904235297245140, guid: 7fcb81f4cdee8b24693395dc48c7760d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 6063084765296431962, guid: c165bd7bbce91864c82f2ef708e36508, type: 3}
+      objectReference: {fileID: 11500000, guid: 779b494e57043a941a52e01cde314639, type: 3}
     - target: {fileID: 4732904235297245140, guid: 7fcb81f4cdee8b24693395dc48c7760d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4732904235297245140, guid: 7fcb81f4cdee8b24693395dc48c7760d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: HideNotification
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4732904235297245140, guid: 7fcb81f4cdee8b24693395dc48c7760d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

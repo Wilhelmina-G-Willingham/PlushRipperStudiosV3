@@ -1,9 +1,12 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialPopup : MonoBehaviour
 {
     public GameObject popupPanel; // Assign the popup panel (the tutorial window) in the Inspector
-    public GameObject computer;   // Assign the computer (or the specific GameObject) in the Inspector
+    public GameObject computer;    // Assign the computer (or the specific GameObject) in the Inspector
+    public Text tutorialText;      // Assign the Text component in the Inspector
 
     void Start()
     {
@@ -11,6 +14,18 @@ public class TutorialPopup : MonoBehaviour
         if (popupPanel != null)
         {
             popupPanel.SetActive(true);
+        }
+
+        // Start the coroutine to show the text after a delay
+        StartCoroutine(ShowTextAfterDelay(0.5f));
+    }
+
+    private IEnumerator ShowTextAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay); // Wait for the specified delay
+        if (tutorialText != null)
+        {
+            tutorialText.gameObject.SetActive(true); // Show the text
         }
     }
 

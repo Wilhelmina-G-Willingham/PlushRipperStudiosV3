@@ -1416,20 +1416,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 695635003179327504, guid: 81f12af3e8428264a9e5648e45db8f89, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2882994742281976043, guid: c49d299ae0e8e444eb6751113258fa91, type: 3}
+    - target: {fileID: 695635003179327504, guid: 81f12af3e8428264a9e5648e45db8f89, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 695635003179327504, guid: 81f12af3e8428264a9e5648e45db8f89, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnButtonPressed
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 695635003179327504, guid: 81f12af3e8428264a9e5648e45db8f89, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: NotificationTrigger, Assembly-CSharp
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 695635003179327504, guid: 81f12af3e8428264a9e5648e45db8f89, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6157349609735490578, guid: 81f12af3e8428264a9e5648e45db8f89, type: 3}
       propertyPath: m_Name

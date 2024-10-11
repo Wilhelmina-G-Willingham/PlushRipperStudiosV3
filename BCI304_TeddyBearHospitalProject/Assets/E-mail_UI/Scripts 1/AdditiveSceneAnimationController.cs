@@ -1,11 +1,14 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class AnimationController : MonoBehaviour
+public class AdditiveSceneAnimationController : MonoBehaviour
 {
     public GameObject animationCanvas;          // Reference to the Animation Canvas
     public GameObject animationPanel;           // Specific panel that will hold the animation
     public AudioClip[] notificationSounds;      // Array of notification sound clips
     private AudioSource audioSource;            // AudioSource component to play sounds
+
+    private bool isSceneUnloaded = false;
 
     private void Start()
     {
@@ -26,10 +29,13 @@ public class AnimationController : MonoBehaviour
         {
             audioSource = gameObject.AddComponent<AudioSource>(); // Add AudioSource if missing
         }
+
+        // Subscribe to the scene unloading event
+        SceneManager.sceneUnloaded += OnAdditiveSceneUnloaded;
     }
 
-    // Method to show the animation immediately (no delay)
-    public void ShowAnimation()
+    // Method to show the animation when the additive scene is unloaded
+    private void ShowAnimation()
     {
         if (animationCanvas != null)
         {
@@ -39,11 +45,11 @@ public class AnimationController : MonoBehaviour
                 animationPanel.SetActive(true);   // Unhide the animation panel
             }
             PlayNotificationSound();              // Play sound when the animation appears
-            Debug.Log("Animation shown.");
+            Debug.Log("Animation shown after additive scene unloaded.");
         }
     }
 
-    // Method to hide the animation
+    // Method to hide the animation when the reply button is pressed
     public void HideAnimation()
     {
         if (animationCanvas != null)
@@ -57,16 +63,14 @@ public class AnimationController : MonoBehaviour
         }
     }
 
-    // Call this method when the PC is clicked
-    public void OnPCClicked()
+    // Event handler for scene unloading
+    private void OnAdditiveSceneUnloaded(Scene current)
     {
-        ShowAnimation();  // Show the animation
-    }
-
-    // Call this method when the reply button is pressed
-    public void OnReplyButtonPressed()
-    {
-        HideAnimation();  // Hide the animation
+        if (!isSceneUnloaded) // Ensure this only runs once
+        {
+            ShowAnimation();  // Show the animation
+            isSceneUnloaded = true;
+        }
     }
 
     // Play a random notification sound
@@ -78,5 +82,11 @@ public class AnimationController : MonoBehaviour
             AudioClip clipToPlay = notificationSounds[randomIndex];
             audioSource.PlayOneShot(clipToPlay);  // Play the sound
         }
+    }
+
+    // Unsubscribe from the event when the object is destroyed
+    private void OnDestroy()
+    {
+        SceneManager.sceneUnloaded -= OnAdditiveSceneUnloaded;
     }
 }
