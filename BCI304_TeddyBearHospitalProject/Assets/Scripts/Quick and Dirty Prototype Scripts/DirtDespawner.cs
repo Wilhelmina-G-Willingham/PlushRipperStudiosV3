@@ -7,8 +7,9 @@ public class DirtDespawner : MonoBehaviour
 
     [SerializeField] private AudioClip[] scrubClips; // Array of audio clips to choose from
     [SerializeField] private float shrinkDuration = 1f; // Duration for shrinking
+    [SerializeField] private ParticleSystem dirtParticle; // Reference to the particle system
 
-    // Static fwag UWU
+    // Static flag for despawning
     private static bool isAnyDirtDespawning = false;
 
     private void Start()
@@ -22,6 +23,12 @@ public class DirtDespawner : MonoBehaviour
         else
         {
             Debug.LogError("Rigidbody component not found on the dirt object!");
+        }
+
+        // Stop the particle system at the start, if assigned
+        if (dirtParticle != null)
+        {
+            dirtParticle.Stop();
         }
     }
 
@@ -53,6 +60,13 @@ public class DirtDespawner : MonoBehaviour
         Vector3 initialScale = transform.localScale;
         float elapsedTime = 0f;
 
+        // Start the particle system when shrinking begins
+        if (dirtParticle != null)
+        {
+            dirtParticle.transform.position = transform.position; // Position the particle system
+            dirtParticle.Play(); // Start playing the particle effect
+        }
+
         // Gradually shrink over the duration
         while (elapsedTime < shrinkDuration)
         {
@@ -63,6 +77,12 @@ public class DirtDespawner : MonoBehaviour
         }
 
         transform.localScale = Vector3.zero;
+
+        // Stop the particle system after shrinking
+        if (dirtParticle != null)
+        {
+            dirtParticle.Stop();
+        }
 
         Destroy(gameObject);
 
