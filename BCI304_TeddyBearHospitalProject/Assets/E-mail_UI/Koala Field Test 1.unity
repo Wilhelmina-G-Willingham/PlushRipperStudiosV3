@@ -3505,6 +3505,22 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4648886240531032968, guid: fabcbbc5a9a401e47bfc03eb5afbf6c1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 22ccd9ea2758f5f43817682d0326b2a2, type: 2}
+    - target: {fileID: 4648886240531032968, guid: fabcbbc5a9a401e47bfc03eb5afbf6c1, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 22ccd9ea2758f5f43817682d0326b2a2, type: 2}
+    - target: {fileID: 4648886240531032968, guid: fabcbbc5a9a401e47bfc03eb5afbf6c1, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 22ccd9ea2758f5f43817682d0326b2a2, type: 2}
+    - target: {fileID: 4648886240531032968, guid: fabcbbc5a9a401e47bfc03eb5afbf6c1, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: 22ccd9ea2758f5f43817682d0326b2a2, type: 2}
     - target: {fileID: 5350968647197125946, guid: fabcbbc5a9a401e47bfc03eb5afbf6c1, type: 3}
       propertyPath: scrubClips.Array.size
       value: 4
@@ -3543,7 +3559,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5822879143998673127, guid: fabcbbc5a9a401e47bfc03eb5afbf6c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.128
+      value: 3.915
       objectReference: {fileID: 0}
     - target: {fileID: 5822879143998673127, guid: fabcbbc5a9a401e47bfc03eb5afbf6c1, type: 3}
       propertyPath: m_LocalPosition.z
