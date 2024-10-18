@@ -10,6 +10,8 @@ TagManager:
   - SewingNeedle
   - Collar
   - Teddy
+  - PlayerCamera
+  - WaterParticle
   layers:
   - Default
   - TransparentFX
