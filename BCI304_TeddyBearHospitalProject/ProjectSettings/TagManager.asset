@@ -12,6 +12,7 @@ TagManager:
   - Teddy
   - PlayerCamera
   - WaterParticle
+  - Water
   layers:
   - Default
   - TransparentFX

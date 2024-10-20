@@ -1,68 +1,77 @@
 using UnityEngine;
-using System.Collections;
 
-public class MaterialChanger : MonoBehaviour
+public class SinkAlphaFader : MonoBehaviour
 {
-    public Material targetMaterial;         // The material to change to
-    public float transitionDuration = 2f;   // Duration of the material transition
-    private Material originalMaterial;      // The original material of the object
-    private Renderer objectRenderer;        // The object's renderer
-    private bool isChanging = false;        // Check if the material is changing
+    public GameObject bearObject;     // The bear whose material will be affected
+    public GameObject sinkObject;     // The sink GameObject to detect when it's clicked
+    public float fadeDuration = 2.0f; // Duration of the fade effect in seconds
+
+    private Material bearMaterial;    // The material of the bear
+    private bool isSinkActivated = false;  // To track if the sink has been activated
+    private bool isFadingComplete = false; // To track if the fading process has completed
+    private float fadeTimer = 0.0f;   // Timer for tracking fade progress
 
     private void Start()
     {
-        // Get the object's renderer and save its original material
-        objectRenderer = GetComponent<Renderer>();
-        originalMaterial = objectRenderer.material;
-    }
-
-    public void ActivateSink()
-    {
-        if (!isChanging && targetMaterial != null)
+        // Get the material from the bearObject's renderer
+        if (bearObject != null)
         {
-            StartCoroutine(ChangeMaterial());
+            Renderer renderer = bearObject.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                bearMaterial = renderer.material;
+            }
         }
     }
 
-    private IEnumerator ChangeMaterial()
+    private void Update()
     {
-        isChanging = true;
-        float elapsedTime = 0f;
-
-        // Cache initial values from the original material
-        Color initialAlbedo = objectRenderer.material.GetColor("_Color");
-        float initialMetallic = objectRenderer.material.GetFloat("_Metallic");
-        Texture initialNormalMap = objectRenderer.material.GetTexture("_BumpMap");
-
-        // Cache target values from the target material
-        Color targetAlbedo = targetMaterial.GetColor("_Color");
-        float targetMetallic = targetMaterial.GetFloat("_Metallic");
-        Texture targetNormalMap = targetMaterial.GetTexture("_BumpMap");
-
-        // Gradually interpolate between the original and target material properties
-        while (elapsedTime < transitionDuration)
+        // Check for mouse click
+        if (Input.GetMouseButtonDown(0))  // Left mouse button
         {
-            float t = elapsedTime / transitionDuration;
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            // Lerp the Albedo (color)
-            objectRenderer.material.SetColor("_Color", Color.Lerp(initialAlbedo, targetAlbedo, t));
-
-            // Lerp the Metallic property
-            objectRenderer.material.SetFloat("_Metallic", Mathf.Lerp(initialMetallic, targetMetallic, t));
-
-            // Blend the normal map
-            objectRenderer.material.SetTexture("_BumpMap", targetNormalMap);
-
-            elapsedTime += Time.deltaTime;
-            yield return null;
+            if (Physics.Raycast(ray, out hit))
+            {
+                // Check if the sink object was clicked
+                if (hit.collider.gameObject == sinkObject && !isFadingComplete)
+                {
+                    isSinkActivated = true;
+                    fadeTimer = 0.0f; // Reset fade timer when the sink is activated
+                }
+            }
         }
 
-        // Ensure the final material properties are fully set
-        objectRenderer.material.SetColor("_Color", targetAlbedo);
-        objectRenderer.material.SetFloat("_Metallic", targetMetallic);
-        objectRenderer.material.SetTexture("_BumpMap", targetNormalMap);
+        // If the sink is activated, start fading the bear material
+        if (isSinkActivated && !isFadingComplete)
+        {
+            FadeAlphaOverTime();
+        }
+    }
 
-        isChanging = false;
+    private void FadeAlphaOverTime()
+    {
+        if (bearMaterial != null)
+        {
+            // Gradually fade the alpha over time
+            fadeTimer += Time.deltaTime;
+            float alphaValue = Mathf.Lerp(1f, 0f, fadeTimer / fadeDuration);
+
+            // Apply the new alpha to the bear material's color
+            Color color = bearMaterial.color;
+            color.a = alphaValue;
+            bearMaterial.color = color;
+
+            // Stop the fading process once fully transparent and mark it as complete
+            if (alphaValue <= 0)
+            {
+                isFadingComplete = true; // Mark the fade as complete
+                isSinkActivated = false; // Deactivate the sink interaction
+                color.a = 0f; // Ensure the alpha stays at 0
+                bearMaterial.color = color;
+            }
+        }
     }
 }
 
