@@ -2,16 +2,24 @@ using UnityEngine;
 
 public class SeamRipperTool : MonoBehaviour
 {
-    public BoxCollider toolCollider;  // BoxCollider for the seam ripper tool
-    public Transform marker;          // Marker on the bear's back seam
-    public Transform toolTipPoint;    // A Transform point at the end of the seam ripper (set in Inspector or automatically)
+    public BoxCollider toolCollider;    // BoxCollider for the seam ripper tool
+    public Transform marker;            // Marker on the bear's back seam
+    public Transform toolTipPoint;      // A Transform point at the end of the seam ripper
+    public float rotationSpeed = 5f;    // Speed at which the tool rotates to face the marker
+    public float minimumDistance = 0.1f; // Minimum distance to prevent jitter when close to the marker
+    public LayerMask toolLayerMask;     // Layer mask for detecting the tool
+
+    private bool isMouseHovering = false;
+    private Quaternion initialRotation; // Store the initial rotation of the tool
 
     private void Start()
     {
+        // Store the original orientation of the tool
+        initialRotation = transform.rotation;
+
         // If no toolTipPoint is set manually, create one at the forward end of the BoxCollider
         if (toolTipPoint == null && toolCollider != null)
         {
-            // Calculate the local forward end point of the BoxCollider
             Vector3 toolEndPoint = toolCollider.center + new Vector3(0, 0, toolCollider.size.z / 2);
             GameObject tipPointObj = new GameObject("ToolTipPoint");
             tipPointObj.transform.SetParent(toolCollider.transform);
@@ -22,12 +30,35 @@ public class SeamRipperTool : MonoBehaviour
 
     private void Update()
     {
-        if (marker != null && toolTipPoint != null)
+        // Check if the mouse is hovering over the tool
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, toolLayerMask))
         {
-            // Make the seam ripper tool point towards the marker
-            Vector3 directionToMarker = marker.position - toolTipPoint.position;
-            Quaternion targetRotation = Quaternion.LookRotation(directionToMarker);
-            transform.rotation = targetRotation;
+            isMouseHovering = hit.collider == toolCollider;
+        }
+        else
+        {
+            isMouseHovering = false;
+        }
+
+        // If the mouse is hovering, rotate toward the marker
+        if (isMouseHovering && marker != null && toolTipPoint != null)
+        {
+            float distanceToMarker = Vector3.Distance(toolTipPoint.position, marker.position);
+
+            if (distanceToMarker > minimumDistance)
+            {
+                Vector3 directionToMarker = marker.position - toolTipPoint.position;
+                Quaternion targetRotation = Quaternion.LookRotation(directionToMarker);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+            }
+        }
+        else
+        {
+            // Smoothly return to the initial rotation when not hovering
+            transform.rotation = Quaternion.Slerp(transform.rotation, initialRotation, Time.deltaTime * rotationSpeed);
         }
     }
 }
