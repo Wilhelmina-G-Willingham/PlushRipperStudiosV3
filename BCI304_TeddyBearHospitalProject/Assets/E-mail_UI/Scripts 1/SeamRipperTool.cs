@@ -43,22 +43,23 @@ public class SeamRipperTool : MonoBehaviour
             isMouseHovering = false;
         }
 
-        // If the mouse is hovering, rotate toward the marker
-        if (isMouseHovering && marker != null && toolTipPoint != null)
+        // If the mouse is hovering and the button is held down, rotate directly toward the marker
+        if (isMouseHovering && Input.GetMouseButton(0) && marker != null && toolTipPoint != null)
         {
             float distanceToMarker = Vector3.Distance(toolTipPoint.position, marker.position);
 
             if (distanceToMarker > minimumDistance)
             {
-                Vector3 directionToMarker = marker.position - toolTipPoint.position;
-                Quaternion targetRotation = Quaternion.LookRotation(directionToMarker);
+                Vector3 directionToMarker = (marker.position - toolTipPoint.position).normalized;
+                Quaternion targetRotation = Quaternion.LookRotation(directionToMarker, Vector3.up);
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
             }
         }
         else
         {
-            // Smoothly return to the initial rotation when not hovering
+            // Smoothly return to the initial rotation when not hovering or mouse button not held
             transform.rotation = Quaternion.Slerp(transform.rotation, initialRotation, Time.deltaTime * rotationSpeed);
         }
     }
 }
+
