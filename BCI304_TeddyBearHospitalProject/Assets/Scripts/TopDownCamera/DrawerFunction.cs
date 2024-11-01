@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; // Add this for UI elements
 
 public class DrawerFunction : MonoBehaviour, IInteractible
 {
@@ -23,10 +24,19 @@ public class DrawerFunction : MonoBehaviour, IInteractible
     [SerializeField]
     private float openCloseSpeed = 1f; // Speed in units per second
 
+    // Public reference for the Add Stuffing button
+    public Button addStuffingButton; // Drag the Add Stuffing button here in the inspector
+
     private void Awake()
     {
         closed = new Vector3(transform.position.x, transform.position.y, closedPos.transform.position.z);
         opened = new Vector3(transform.position.x, transform.position.y, openedPos.transform.position.z);
+
+        // Ensure the button is hidden at the start
+        if (addStuffingButton != null)
+        {
+            addStuffingButton.gameObject.SetActive(false);
+        }
     }
 
     public void OneClickInteract()
@@ -62,6 +72,12 @@ public class DrawerFunction : MonoBehaviour, IInteractible
         transform.position = closed; // Ensure it ends exactly at closed position
         bDrawerOpen = false;
         SoundFXManager.instance.PlaySoundFXClip(CloseSound, transform, 1f);
+
+        // Hide the button when the drawer is closed
+        if (addStuffingButton != null)
+        {
+            addStuffingButton.gameObject.SetActive(false);
+        }
     }
 
     private IEnumerator DrawerOpen()
@@ -84,7 +100,11 @@ public class DrawerFunction : MonoBehaviour, IInteractible
         transform.position = opened; // Ensure it ends exactly at opened position
         bDrawerOpen = true;
         SoundFXManager.instance.PlaySoundFXClip(OpenSound, transform, 1f);
+
+        // Show the button when the drawer is opened
+        if (addStuffingButton != null)
+        {
+            addStuffingButton.gameObject.SetActive(true);
+        }
     }
 }
-
-
