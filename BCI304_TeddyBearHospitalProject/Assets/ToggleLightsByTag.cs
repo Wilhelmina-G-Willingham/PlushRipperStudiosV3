@@ -43,7 +43,7 @@ public class ToggleLightsByTag : MonoBehaviour
                 }
             }
 
-            // Wait for the specified interval before toggling again
+            // HOOOLLLDDDD..... HOOOOOOOOOLDDDDDDDDDDDDD, FIIIIREEEEE (switch light lol)
             yield return new WaitForSeconds(toggleInterval);
         }
     }
