@@ -4,7 +4,7 @@ using UnityEngine;
 public class ParticleSystemFadeOut : MonoBehaviour
 {
     public float playDuration = 1f; // How long the particle system plays normally
-    public float fadeDuration = 1.5f; // Duration for fading out the particles
+    public float fadeDuration = 1.5f; 
 
     private ParticleSystem particleSystem;
     private float elapsedTime;
@@ -17,7 +17,7 @@ public class ParticleSystemFadeOut : MonoBehaviour
         var colorOverLifetime = particleSystem.colorOverLifetime;
         colorOverLifetime.enabled = true;
 
-        // Set up a gradient for fading out
+        // Set up fresh fade (nice lol)
         Gradient gradient = new Gradient();
         gradient.SetKeys(
             new GradientColorKey[] { new GradientColorKey(Color.white, 0.0f) },
@@ -35,7 +35,7 @@ public class ParticleSystemFadeOut : MonoBehaviour
         // Stop the particle emission after the play duration
         if (elapsedTime >= playDuration && particleSystem.isEmitting)
         {
-            particleSystem.Stop(); // Stop emission, allowing particles to fade out naturally
+            particleSystem.Stop(); 
         }
 
         // Destroy the particle system after fade duration completes
