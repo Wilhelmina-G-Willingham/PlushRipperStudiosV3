@@ -13588,8 +13588,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 325, y: -71.99997}
-  m_SizeDelta: {x: 405.3523, y: 226.0781}
+  m_AnchoredPosition: {x: 329.34, y: -97.9507}
+  m_SizeDelta: {x: 396.68, y: 277.9796}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1208413545
 MonoBehaviour:
@@ -13627,7 +13627,10 @@ MonoBehaviour:
   m_Text: 'Welcome to the workstation!
 
 
-    Utilise the tools to cleanup the bear.'
+    Utilise the tools to cleanup the bear.
+
+    Hold
+    shift on the bear for more movement!'
 --- !u!222 &1208413546
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19222,7 +19225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentLocation: {fileID: 286527076}
-  targetHeight: 4
+  targetHeight: 4.2
   returnSoundClips: []
 --- !u!65 &8912746303917401211
 BoxCollider:
