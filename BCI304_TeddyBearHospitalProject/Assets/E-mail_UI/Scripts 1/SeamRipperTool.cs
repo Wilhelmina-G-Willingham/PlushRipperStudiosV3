@@ -8,6 +8,7 @@ public class SeamRipperTool : MonoBehaviour
     public float rotationSpeed = 5f;    // Speed at which the tool rotates to face the marker
     public float minimumDistance = 0.1f; // Minimum distance to prevent jitter when close to the marker
     public LayerMask toolLayerMask;     // Layer mask for detecting the tool
+    public Vector3 rotationOffset;      // Offset for adjusting the rotation of the tool
 
     private bool isMouseHovering = false;
     private Quaternion initialRotation; // Store the initial rotation of the tool
@@ -43,7 +44,7 @@ public class SeamRipperTool : MonoBehaviour
             isMouseHovering = false;
         }
 
-        // If the mouse is hovering and the button is held down, rotate directly toward the marker
+        // If the mouse is hovering and the button is held down, rotate directly toward the marker with offset
         if (isMouseHovering && Input.GetMouseButton(0) && marker != null && toolTipPoint != null)
         {
             float distanceToMarker = Vector3.Distance(toolTipPoint.position, marker.position);
@@ -52,6 +53,10 @@ public class SeamRipperTool : MonoBehaviour
             {
                 Vector3 directionToMarker = (marker.position - toolTipPoint.position).normalized;
                 Quaternion targetRotation = Quaternion.LookRotation(directionToMarker, Vector3.up);
+
+                // Apply the rotation offset
+                targetRotation *= Quaternion.Euler(rotationOffset);
+
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
             }
         }
