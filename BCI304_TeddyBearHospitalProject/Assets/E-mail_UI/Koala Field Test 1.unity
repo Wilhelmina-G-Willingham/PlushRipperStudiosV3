@@ -18375,14 +18375,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8912746303917401208}
   serializedVersion: 2
-  m_LocalRotation: {x: 2.3770083e-10, y: 0.99999744, z: -0.002278939, w: 0.00000010430785}
-  m_LocalPosition: {x: 0.361, y: 0.42195, z: 0.88541}
+  m_LocalRotation: {x: 0.00000010405486, y: -0.06964085, z: -0.9975722, w: -0.0000000072640955}
+  m_LocalPosition: {x: 0.36100465, y: 0.419, z: 0.941}
   m_LocalScale: {x: 2677.3704, y: 2677.3704, z: 2677.3704}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1366245154}
   m_Father: {fileID: 286527077}
-  m_LocalEulerAnglesHint: {x: 0.261, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 187.987, y: 180, z: 0}
 --- !u!4 &2202741941825766822
 Transform:
   m_ObjectHideFlags: 0
@@ -19247,7 +19247,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.0000090207595, y: 0.000006744913, z: 0.00041024009}
-  m_Center: {x: 4.288489e-19, y: -2.8105041e-14, z: -0.000030177565}
+  m_Center: {x: 1.2865467e-18, y: -2.8105041e-14, z: -0.000030176634}
 --- !u!114 &8912746303917401213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19305,7 +19305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toolCollider: {fileID: 8912746303917401211}
-  marker: {fileID: 636350146}
+  marker: {fileID: 1540388371}
   toolTipPoint: {fileID: 1366245154}
   rotationSpeed: 4.5
   minimumDistance: 0.1
