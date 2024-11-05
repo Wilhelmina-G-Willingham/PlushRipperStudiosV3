@@ -1065,6 +1065,7 @@ MonoBehaviour:
   - {fileID: 73226296}
   - {fileID: 2006180797}
   - {fileID: 1419603967}
+  maxBlendshapeValue: 80
 --- !u!1 &286527076
 GameObject:
   m_ObjectHideFlags: 0
@@ -7594,7 +7595,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 171, y: -223}
+  m_AnchoredPosition: {x: 140, y: -270.25}
   m_SizeDelta: {x: 55.983, y: 56.3253}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &756706234
@@ -16134,8 +16135,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180.228}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 325, y: -71.99997}
-  m_SizeDelta: {x: 405.3523, y: 226.0781}
+  m_AnchoredPosition: {x: 294, y: -121}
+  m_SizeDelta: {x: 402.5787, y: 242.1648}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1566633464
 MonoBehaviour:
@@ -16171,7 +16172,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Make sure to explore your environment and complete your tasks fully, \nto
-    unlock more content on the repair table!"
+    unlock more content on the repair table! (hint: drawers can be opened)"
 --- !u!222 &1566633465
 CanvasRenderer:
   m_ObjectHideFlags: 0

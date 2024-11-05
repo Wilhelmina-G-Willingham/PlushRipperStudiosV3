@@ -14580,13 +14580,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 42118f576dea73247b59caf3a1bcbf1d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42118f576dea73247b59caf3a1bcbf1d, type: 3}
+--- !u!1 &1915767460 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 42118f576dea73247b59caf3a1bcbf1d, type: 3}
+  m_PrefabInstance: {fileID: 1915767459}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1935549193 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7605990769198503110, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
@@ -16425,7 +16430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4309195588678606863, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 134.97382
+      value: 134.97397
       objectReference: {fileID: 0}
     - target: {fileID: 4353725981702073827, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_AnchorMax.x
@@ -16457,7 +16462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4513336154866247055, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 82.44335
+      value: 82.44355
       objectReference: {fileID: 0}
     - target: {fileID: 4565514788809247652, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_SizeDelta.x
@@ -16497,7 +16502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5065599663551959952, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 408.8297
+      value: 408.8299
       objectReference: {fileID: 0}
     - target: {fileID: 5088488034781650821, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -16937,7 +16942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8719492927408946738, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8719492927408946738, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -16946,18 +16951,18 @@ PrefabInstance:
     - target: {fileID: 8719492927408946738, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 7963049679284367562}
+      objectReference: {fileID: 7963049679284367566}
     - target: {fileID: 8719492927408946738, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8719492927408946738, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnButtonPressed
+      value: UnhideModel
       objectReference: {fileID: 0}
     - target: {fileID: 8719492927408946738, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: NotificationTrigger, Assembly-CSharp
+      value: UnhideModelOnButtonPress, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8719492927408946738, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -17041,6 +17046,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7139277636351108593, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7963049679284367562}
+    - targetCorrespondingSourceObject: {fileID: 7139277636351108593, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7963049679284367566}
     - targetCorrespondingSourceObject: {fileID: 8663592858136125594, guid: 0b1657bc5f136b74bb524eede300f179, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1122684628}
@@ -17189,6 +17197,19 @@ MonoBehaviour:
   targetCanvas: {fileID: 887389804}
   clickSound: {fileID: 8300000, guid: a01f54e11d2f5e9419d223c645957ff3, type: 3}
   audioSource: {fileID: 7963049679284367564}
+--- !u!114 &7963049679284367566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7963049679284367559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce16e90aa127e2e4abd77ad0a3db9c9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelToUnhide: {fileID: 1915767460}
 --- !u!1 &8025326890580990722
 GameObject:
   m_ObjectHideFlags: 0

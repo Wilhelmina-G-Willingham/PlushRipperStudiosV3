@@ -5,6 +5,7 @@ public class BearStuffingController : MonoBehaviour
     public SkinnedMeshRenderer bearRenderer; // Renderer of the bear with blendshapes
     public string blendshapeName = "Emptiness"; // Name of the blendshape to control
     public GameObject[] stuffingPieces; // Array of stuffing models inside the bear (order from first to last piece)
+    public float maxBlendshapeValue = 80f; // Maximum blendshape value to avoid full flattening
 
     private int currentStuffingLevel; // Tracks the number of stuffing pieces currently in the bear
 
@@ -41,8 +42,8 @@ public class BearStuffingController : MonoBehaviour
         int blendshapeIndex = bearRenderer.sharedMesh.GetBlendShapeIndex(blendshapeName);
         if (blendshapeIndex >= 0)
         {
-            // Map the current stuffing level to blendshape values: full (0) to empty (100)
-            float blendshapeValue = (3 - currentStuffingLevel) * (100f / (stuffingPieces.Length - 1));
+            // Map the current stuffing level to blendshape values: full (0) to maxBlendshapeValue
+            float blendshapeValue = (3 - currentStuffingLevel) * (maxBlendshapeValue / (stuffingPieces.Length - 1));
             bearRenderer.SetBlendShapeWeight(blendshapeIndex, blendshapeValue);
         }
     }
@@ -56,4 +57,3 @@ public class BearStuffingController : MonoBehaviour
         }
     }
 }
-
