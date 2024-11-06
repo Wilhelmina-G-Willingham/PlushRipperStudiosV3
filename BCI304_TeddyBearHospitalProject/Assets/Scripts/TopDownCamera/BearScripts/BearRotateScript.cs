@@ -21,7 +21,7 @@ public class BearRotateScript : MonoBehaviour, IInteractible
 
         //lock cursor so the player's mouse stays inside the game window
         Cursor.lockState = CursorLockMode.Locked;
-        transform.Rotate(Vector3.up, YAxisRotation);
+        transform.Rotate(Vector3.right, YAxisRotation);
 
         //Check if the player is holding down shift, and change left/right to forward/back
         if (Input.GetKey(KeyCode.LeftShift))
@@ -30,7 +30,7 @@ public class BearRotateScript : MonoBehaviour, IInteractible
         }
         else
         {
-            transform.Rotate(Vector3.right, XAxisRotation);
+            transform.Rotate(Vector3.up, XAxisRotation);
         }
     }
 }

@@ -26,7 +26,7 @@ public class MoveAlongSeam : MonoBehaviour
     private bool isAudioPlaying = false; // Track if an audio clip is currently playing
 
     // Renamed from 'renderer' to 'objectRenderer' to avoid name conflict
-    private Renderer objectRenderer;
+    private SpriteRenderer objectRenderer;
 
     void Start()
     {
@@ -38,7 +38,7 @@ public class MoveAlongSeam : MonoBehaviour
         currentSeg = startpoint;
 
         // Fills the reference to the renderer component of this GameObject
-        objectRenderer = GetComponent<Renderer>();
+        objectRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnTriggerStay(Collider other)
@@ -65,13 +65,13 @@ public class MoveAlongSeam : MonoBehaviour
             if (currentSeg == Seam.nodes.Length - 1)
             {
                 // If seam is fully open, apply red material
-                objectRenderer.material = materials[0];
+                objectRenderer.color = Color.red;
                 return;
             }
             else
             {
                 // If mover is moving, apply white material
-                objectRenderer.material = materials[1];
+                objectRenderer.color = Color.white;
                 Move(moveSpeed);
             }
         }
@@ -90,12 +90,12 @@ public class MoveAlongSeam : MonoBehaviour
             if (currentSeg != -1)
             {
                 Move(-moveSpeed);
-                objectRenderer.material = materials[1];
+                objectRenderer.color = Color.white;
             }
             else
             {
                 // If seam is closed, apply green material
-                objectRenderer.material = materials[2];
+                objectRenderer.color = Color.green;
                 return;
             }
         }
@@ -149,6 +149,10 @@ public class MoveAlongSeam : MonoBehaviour
         {
             Debug.LogWarning("No audio clips or sources available to play!");
         }
+    }
+    private void Update()
+    {
+        objectRenderer.transform.rotation = Camera.main.transform.rotation;
     }
 
     // Coroutine to wait for the audio to finish playing

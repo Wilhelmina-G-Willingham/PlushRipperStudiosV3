@@ -39,11 +39,12 @@ public class CreateSeamTrack : MonoBehaviour
     }
 
     //draw dotted lines between seams in sequence, to make it easier to see the path
-    private void OnDrawGizmos()
+   /* private void OnDrawGizmos()
     {
         for (int i = 0; i < nodes.Length - 1; i++)
         {
 
         }
     }
+   */
 }
