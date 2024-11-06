@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+//allows the class to run in-editor, so that the gizmos are drawn in edit mode
+[ExecuteInEditMode]
 
 public class CreateSeamTrack : MonoBehaviour
 {
@@ -36,5 +38,13 @@ public class CreateSeamTrack : MonoBehaviour
         return Vector3.Lerp(p1, p2, ratio);
     }
 
-   
+    //draw dotted lines between seams in sequence, to make it easier to see the path
+   /* private void OnDrawGizmos()
+    {
+        for (int i = 0; i < nodes.Length - 1; i++)
+        {
+
+        }
+    }
+   */
 }
